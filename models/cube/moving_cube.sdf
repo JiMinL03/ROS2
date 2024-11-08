@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
   <model name="gray_box">
-    <pose>35.758200 -64.858900 1.000000 0 0 0</pose>
+    <pose>35.758200 -10.858900 1.000000 0 0 0</pose>
 
     <link name="link">
       <visual name="visual">
@@ -25,19 +25,36 @@
       </collision>
     </link>
 
-    <joint name="move_joint" type="prismatic">
+    <joint name="move_joint_y" type="prismatic">
       <parent>world</parent>
       <child>link</child>
       <pose>0 0 0 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-64.858900</lower>
-          <upper>-74.858900</upper>
-          <effort>1000</effort>
+          <lower>-74.858900</lower>
+          <upper>-64.858900</upper>
+          <effort>100</effort>
           <velocity>2.0</velocity>
         </limit>
       </axis>
     </joint>
+
+    <!-- X축 회전 (두 번째 프리즘틱 조인트) -->
+    <joint name="move_joint_x" type="prismatic">
+      <parent>world</parent>
+      <child>link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-64.858900</lower>
+          <upper>64.858900</upper>
+          <effort>100</effort>
+          <velocity>2.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+
   </model>
 </sdf>
