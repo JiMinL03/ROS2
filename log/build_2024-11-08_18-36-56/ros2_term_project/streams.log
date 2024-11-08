@@ -1,0 +1,24 @@
+[0.547s] Invoking command in '/home/ros2/Downloads/ros2_term_project': PYTHONPATH=/home/ros2/Downloads/ros2_term_project/install/ros2_term_project/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/ros2_term_project build --build-base /home/ros2/Downloads/ros2_term_project/build/ros2_term_project/build install --prefix /home/ros2/Downloads/ros2_term_project/install/ros2_term_project --record /home/ros2/Downloads/ros2_term_project/build/ros2_term_project/install.log --single-version-externally-managed
+[0.713s] running egg_info
+[0.713s] writing build/ros2_term_project/ros2_term_project.egg-info/PKG-INFO
+[0.714s] writing dependency_links to build/ros2_term_project/ros2_term_project.egg-info/dependency_links.txt
+[0.714s] writing entry points to build/ros2_term_project/ros2_term_project.egg-info/entry_points.txt
+[0.714s] writing requirements to build/ros2_term_project/ros2_term_project.egg-info/requires.txt
+[0.714s] writing top-level names to build/ros2_term_project/ros2_term_project.egg-info/top_level.txt
+[0.744s] reading manifest file 'build/ros2_term_project/ros2_term_project.egg-info/SOURCES.txt'
+[0.744s] writing manifest file 'build/ros2_term_project/ros2_term_project.egg-info/SOURCES.txt'
+[0.745s] running build
+[0.745s] running build_py
+[0.745s] copying ros2_term_project/box_spawn.py -> /home/ros2/Downloads/ros2_term_project/build/ros2_term_project/build/lib/ros2_term_project
+[0.745s] running install
+[0.746s] running install_lib
+[0.746s] copying /home/ros2/Downloads/ros2_term_project/build/ros2_term_project/build/lib/ros2_term_project/box_spawn.py -> /home/ros2/Downloads/ros2_term_project/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project
+[0.747s] byte-compiling /home/ros2/Downloads/ros2_term_project/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/box_spawn.py to box_spawn.cpython-38.pyc
+[0.748s] running install_data
+[0.749s] running install_egg_info
+[0.750s] removing '/home/ros2/Downloads/ros2_term_project/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project-0.0.0-py3.8.egg-info' (and everything under it)
+[0.750s] Copying build/ros2_term_project/ros2_term_project.egg-info to /home/ros2/Downloads/ros2_term_project/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project-0.0.0-py3.8.egg-info
+[0.751s] running install_scripts
+[0.764s] Installing box_spawn script to /home/ros2/Downloads/ros2_term_project/install/ros2_term_project/lib/ros2_term_project
+[0.764s] writing list of installed files to '/home/ros2/Downloads/ros2_term_project/build/ros2_term_project/install.log'
+[0.780s] Invoked command in '/home/ros2/Downloads/ros2_term_project' returned '0': PYTHONPATH=/home/ros2/Downloads/ros2_term_project/install/ros2_term_project/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/ros2_term_project build --build-base /home/ros2/Downloads/ros2_term_project/build/ros2_term_project/build install --prefix /home/ros2/Downloads/ros2_term_project/install/ros2_term_project --record /home/ros2/Downloads/ros2_term_project/build/ros2_term_project/install.log --single-version-externally-managed

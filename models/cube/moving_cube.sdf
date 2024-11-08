@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="gray_box">
+    <pose>35.758200 -64.858900 1.000000 0 0 0</pose>
+
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2 2 2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>2 2 2</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="move_joint" type="prismatic">
+      <parent>world</parent>
+      <child>link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-64.858900</lower>
+          <upper>-74.858900</upper>
+          <effort>1000</effort>
+          <velocity>2.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+  </model>
+</sdf>
