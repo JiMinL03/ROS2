@@ -1,0 +1,4 @@
+[0.000000] (-) TimerEvent: {}
+[0.000491] (-) JobUnselected: {'identifier': 'custom_interface'}
+[0.000545] (-) JobUnselected: {'identifier': 'ros2_term_project'}
+[0.000856] (-) EventReactorShutdown: {}

@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from custom_interface/msg/StartCar.msg
+// generated code does not contain a copyright notice
+
+
+module custom_interface {
+  module msg {
+    @verbatim (language="comment", text=
+      " StartCar.msg")
+    struct StartCar {
+      @verbatim (language="comment", text=
+        " 차량 이름을 나타내는 문자열")
+      string car;
+    };
+  };
+};

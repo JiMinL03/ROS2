@@ -1,0 +1,4 @@
+[console_scripts]
+cube_mover = ros2_term_project.cube_mover:main
+follower = ros2_term_project.line_follower:main
+

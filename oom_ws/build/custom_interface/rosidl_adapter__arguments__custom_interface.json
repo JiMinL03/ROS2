@@ -1,0 +1,6 @@
+{
+  "package_name": "custom_interface",
+  "non_idl_tuples": [
+    "/home/ros2/Ros2Projects/oom_ws/src/custom_interface:msg/StartCar.msg"
+  ]
+}

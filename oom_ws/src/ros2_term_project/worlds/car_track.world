@@ -1,0 +1,227 @@
+<sdf version="1.6">
+  <world name="default">
+
+<!--
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+-->
+
+
+    <model name="ground">
+        <pose>75 -41.8 0 0 0 1.57</pose>
+        <static>1</static>
+        <link name="ground">
+            <collision name="ground_coll">
+                <geometry>
+                    <box>
+                        <size>83.6 150 0.05</size>
+                    </box>
+                </geometry>
+                <surface>
+                    <contact>
+                        <ode/>
+                    </contact>
+                </surface>
+            </collision>
+            <visual name="ground_vis">
+                <geometry>
+                    <box>
+                        <size>83.6 150  0.05</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri> ./course.material </uri>  <!-- file://course.material -->
+                        <name>course</name>
+                    </script>
+                </material>
+            </visual>
+        </link>
+    </model>
+
+    <model name="cube">
+        <pose>35 -64 1 0 0 0</pose>
+        <static>0</static>
+        <link name="cube">
+            <self_collide>0</self_collide>
+            <enable_wind>0</enable_wind>
+            <kinematic>0</kinematic>
+            <collision name="collision">
+                <max_contacts>10</max_contacts>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <box>
+                        <size>2 2 2</size>
+                    </box>
+                </geometry>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>0</mu>
+                            <mu2>0</mu2>
+                        </ode>
+                    </friction>
+                    <contact>
+                        <collide_without_contact>0</collide_without_contact>
+                    </contact>
+                </surface>
+            </collision>
+            <visual name="cube_vis">
+                <geometry>
+                    <box>
+                        <size>2 2 2</size>
+                    </box>
+                </geometry>
+                <material>
+                <ambient>0.5 0.5 0.5 1</ambient>
+                <diffuse>0.5 0.5 0.5 1</diffuse>
+                <specular>0.1 0.1 0.1 1</specular>
+                <emissive>0 0 0 1</emissive>
+                </material>
+            </visual>
+        </link>
+
+        <plugin name="cube" filename="libgazebo_ros_planar_move.so">
+            <ros>
+                <namespace>CUBE</namespace>
+                <remapping>cmd_vel:=cmd_demo</remapping>
+                <odometryTopic>odom</odometryTopic>
+                <odometryFrame>odom</odometryFrame>
+                <odometryRate>20.0</odometryRate>
+                <robotBaseFrame>base_footprint</robotBaseFrame>
+            </ros>
+        </plugin>
+    </model>
+
+    <actor name="actor">
+        <skin>
+            <filename>file://media/models/walk.dae</filename>
+            <scale>1.0</scale>
+        </skin>
+        <pose>112 -44 0.5 0 0 0</pose>
+        <animation name="walking">
+            <filename>file://media/models/walk.dae</filename>
+            <scale>1.05000</scale>
+            <interpolate_x>true</interpolate_x>
+        </animation>
+        <script>
+            <loop>true</loop>
+            <delay_start>0.0</delay_start>
+            <auto_start>true</auto_start>
+
+            <trajectory id="0" type="walking">
+                <waypoint>
+                    <time>0.0</time>
+                    <pose>127 -44 0 0 0 0</pose>
+                </waypoint>
+                <waypoint>
+                    <time>10.0</time>
+                    <pose>138 -44 0 0 0 0</pose>
+                </waypoint>
+                <waypoint>
+                    <time>11.0</time>
+                    <pose>138 -44 0 0 0 3.14</pose>
+                </waypoint>
+                <waypoint>
+                    <time>21.0</time>
+                    <pose>127 -44 0 0 0 3.14</pose>
+                </waypoint>
+                <waypoint>
+                    <time>22.0</time>
+                    <pose>127 -44 0 0 0 0</pose>
+                </waypoint>
+            </trajectory>
+        </script>
+    </actor>
+
+    <include>
+        <uri>model://sun</uri>
+    </include>
+    
+    
+    <model name="uphill">
+        <pose>89.1 -70 0.05 0 -0.1 0</pose>
+        <static>true</static>
+        <link name="link">
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>10 10 1</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>10 10 1</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri> ./hill_up.material </uri>
+                        <name>hill_up</name>
+                    </script>
+                </material>
+            </visual>
+        </link>
+    </model>
+
+    <model name="flat">
+        <pose>96 -70 0.58 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>5 10 1</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>5 10 1</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>./hill_mid.material</uri>
+                        <name>hill_mid</name>
+                    </script>
+                </material>
+            </visual>
+        </link>
+    </model>
+
+    <model name="downhill">
+        <pose>103 -70 0.05 0 0.1 0</pose>
+        <static>true</static>
+        <link name="link">
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>10 10 1</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>10 10 1</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>./hill_down.material</uri>
+                        <name>hill_down</name>
+                    </script>
+                </material>
+            </visual>
+        </link>
+    </model>
+
+  </world>
+</sdf>
+
+
