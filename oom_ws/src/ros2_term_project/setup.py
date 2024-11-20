@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
             'cube_mover = ros2_term_project.cube_mover:main',
             'follower = ros2_term_project.line_follower:main',
+            'car_mover = ros2_term_project.car_mover:main',
         ],
     },
 )

@@ -61,19 +61,17 @@ def generate_launch_description():
         output='screen')
     
     line_follower_node = Node(
-        namespace='/PR001',
         package='ros2_term_project',
         executable='follower',
+        name='follower',
         output='screen',
-        arguments=['PR001']
     )
-
-    line_follower_node2 = Node(
-        namespace='/PR002',
+    
+    car_mover_node = Node(
         package='ros2_term_project',
-        executable='follower',	
+        executable='car_mover',
+        name='car_mover',
         output='screen',
-        arguments=['PR002']
     )
 
     ld.add_action(declare_argument)
@@ -81,5 +79,4 @@ def generate_launch_description():
     ld.add_action(cube_mover_node)
     ld.add_action(spawn_car_node)
     ld.add_action(line_follower_node)
-    ld.add_action(line_follower_node2)
     return ld

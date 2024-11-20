@@ -1,0 +1,24 @@
+[0.358s] Invoking command in '/home/ros2/Ros2Projects/oom_ws/src/ros2_term_project': PYTHONPATH=/home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ros2_term_project build --build-base /home/ros2/Ros2Projects/oom_ws/build/ros2_term_project/build install --prefix /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project --record /home/ros2/Ros2Projects/oom_ws/build/ros2_term_project/install.log --single-version-externally-managed
+[0.461s] running egg_info
+[0.462s] writing ../../build/ros2_term_project/ros2_term_project.egg-info/PKG-INFO
+[0.462s] writing dependency_links to ../../build/ros2_term_project/ros2_term_project.egg-info/dependency_links.txt
+[0.462s] writing entry points to ../../build/ros2_term_project/ros2_term_project.egg-info/entry_points.txt
+[0.462s] writing requirements to ../../build/ros2_term_project/ros2_term_project.egg-info/requires.txt
+[0.462s] writing top-level names to ../../build/ros2_term_project/ros2_term_project.egg-info/top_level.txt
+[0.483s] reading manifest file '../../build/ros2_term_project/ros2_term_project.egg-info/SOURCES.txt'
+[0.483s] writing manifest file '../../build/ros2_term_project/ros2_term_project.egg-info/SOURCES.txt'
+[0.483s] running build
+[0.484s] running build_py
+[0.484s] running install
+[0.484s] running install_lib
+[0.485s] running install_data
+[0.485s] copying launch/car_sim.launch.py -> /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/share/ros2_term_project/launch
+[0.485s] running install_egg_info
+[0.486s] removing '/home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project-0.0.0-py3.8.egg-info' (and everything under it)
+[0.486s] Copying ../../build/ros2_term_project/ros2_term_project.egg-info to /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project-0.0.0-py3.8.egg-info
+[0.487s] running install_scripts
+[0.496s] Installing car_mover script to /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/ros2_term_project
+[0.497s] Installing cube_mover script to /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/ros2_term_project
+[0.497s] Installing follower script to /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/ros2_term_project
+[0.497s] writing list of installed files to '/home/ros2/Ros2Projects/oom_ws/build/ros2_term_project/install.log'
+[0.508s] Invoked command in '/home/ros2/Ros2Projects/oom_ws/src/ros2_term_project' returned '0': PYTHONPATH=/home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ros2_term_project build --build-base /home/ros2/Ros2Projects/oom_ws/build/ros2_term_project/build install --prefix /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project --record /home/ros2/Ros2Projects/oom_ws/build/ros2_term_project/install.log --single-version-externally-managed

@@ -11,6 +11,7 @@ setup.py
 launch/car_sim.launch.py
 resource/ros2_term_project
 ros2_term_project/__init__.py
+ros2_term_project/car_mover.py
 ros2_term_project/cube_mover.py
 ros2_term_project/line_follower.py
 ros2_term_project/line_tracker.py
