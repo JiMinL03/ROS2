@@ -2,12 +2,10 @@
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/line_follower.py
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/cube_mover.py
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/line_tracker.py
-/home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/car_mover.py
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/__pycache__/__init__.cpython-38.pyc
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/__pycache__/line_follower.cpython-38.pyc
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/__pycache__/cube_mover.cpython-38.pyc
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/__pycache__/line_tracker.cpython-38.pyc
-/home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/lib/python3.8/site-packages/ros2_term_project/__pycache__/car_mover.cpython-38.pyc
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/share/ament_index/resource_index/packages/ros2_term_project
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/share/ros2_term_project/package.xml
 /home/ros2/Ros2Projects/oom_ws/install/ros2_term_project/share/ros2_term_project/launch/car_sim.launch.py

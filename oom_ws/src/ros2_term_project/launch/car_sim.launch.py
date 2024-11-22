@@ -66,13 +66,6 @@ def generate_launch_description():
         name='follower',
         output='screen',
     )
-    
-    car_mover_node = Node(
-        package='ros2_term_project',
-        executable='car_mover',
-        name='car_mover',
-        output='screen',
-    )
 
     ld.add_action(declare_argument)
     ld.add_action(gazebo_run)

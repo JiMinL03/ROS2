@@ -5,10 +5,9 @@ import numpy
 class LineTracker:
     def __init__(self):
         self._delta = 0.0
-        self.line = False  # self.line을 초기화
+        self.line = False  
 
     def process(self, img: numpy.ndarray) -> None:
-        # 수정: HSV 색 공간으로 변경
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         lower_white = numpy.array([0, 0, 160])
@@ -17,30 +16,28 @@ class LineTracker:
         
         h, w, d = img.shape
 
-        # 위에서 부터 높이의 75%
         search_top = int(3 * h / 4)
-        # 위에서 부터 높이의 75%에서 +20한 위치 부터
         search_bot = int(3 * h / 4 + 14)
-        # 0으로 처리
+        
         mask[0:search_top, 0:w] = 0
-        # 0으로 처리
         mask[search_bot:, 0:w] = 0
+        
         M = cv2.moments(mask)
         if M['m00'] > 0:
             cx = int(M['m10'] / M['m00'])
             cy = int(M['m01'] / M['m00'])
             cv2.circle(img, (cx, cy), 20, (0, 0, 255), -1)
-            self.line = True  # 선이 있을 때 True로 설정
-            # 제어 시작
+            self.line = True  
+
             err = cx - w / 2
             self._delta = err
-            # 제어 끝
+
         else:
-            self.line = False  # 선을 못 찾았을 때는 False로 설정
+            self.line = False  
 
         cv2.imshow("window", img)
         cv2.imshow("mask", mask)
-        cv2.waitKey(3)  # 대소문자 수정
+        cv2.waitKey(3)  
 
     @property
     def delta(self):
