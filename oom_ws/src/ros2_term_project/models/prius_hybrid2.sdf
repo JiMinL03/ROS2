@@ -685,7 +685,7 @@
 				</mesh>
 			</geometry>
 		</visual>
-		<sensor name="laser" type="gpu_ray">
+		<sensor name="PR002_laser" type="gpu_ray">
 			<pose>0.01 0 0.0175 0 -0 0</pose>
 			<ray>
 				<scan>
@@ -704,7 +704,7 @@
 			</ray>
 			<plugin name="PR002_laser" filename="libgazebo_ros_ray_sensor.so">
 				<ros>
-					<!--<namespace>PR001</namespace>-->
+					<namespace>PR002_laser</namespace>
 				    <remapping>~/out:=scan</remapping>
 					<remapping>camera_info:=camera_info_demo</remapping>
 				</ros>
