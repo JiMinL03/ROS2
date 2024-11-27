@@ -531,7 +531,7 @@
     
    <!-- Front Camera (Single Camera Setup with Wide FOV) -->
 <link name="camera_link_front">
-    <pose>0.13 -2.3 0.3 0 0 -1.5708</pose> <!-- Position on the left side of the car -->
+    <pose>0.13 -2.3 0.8 0 0 -1.5708</pose> <!-- Position on the left side of the car -->
     <visual name="visual">
         <geometry>
             <box>
@@ -556,7 +556,7 @@
     </inertial>
     
     <!-- 카메라의 optical frame 위치 -->
-     <pose>0.13 -2.3 0.3 0 0 -1.5708</pose>
+     <pose>0.13 -2.3 0.8 0 0 -1.5708</pose>
 
     <sensor name="PR001_camera" type="camera">
         <always_on>true</always_on>

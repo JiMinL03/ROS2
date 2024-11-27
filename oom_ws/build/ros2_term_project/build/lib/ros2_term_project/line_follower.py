@@ -51,7 +51,7 @@ class LineFollower(Node):
         img = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         self.line_tracker.process(img)
 
-        self.twist.angular.z = (-1) * self.line_tracker.delta / 450
+        self.twist.angular.z = (-1) * self.line_tracker.delta / 50
         self._publisher.publish(self.twist)
 
     def scan_callback(self, msg: LaserScan):
