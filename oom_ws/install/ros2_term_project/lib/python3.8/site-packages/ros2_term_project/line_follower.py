@@ -33,6 +33,9 @@ class LineFollower(Node):
         self.avoidance_sign = 1
         self.avoidance_start_delta = 0
 
+        self.stopped = False
+        self.line_tracker.stop_callback = self.stop
+
     def start_car_callback(self, msg: StartCar):
         self.car_name = msg.car
         if self.car_name == 'PR001':
@@ -47,10 +50,12 @@ class LineFollower(Node):
             self.lidar_subscription = self.create_subscription(LaserScan, '/PR002_laser/scan', self.scan_callback, 10);
 
     def image_callback(self, msg: Image):
+        if self.stopped: return
         if self.obstacle_found: return
         img = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         self.line_tracker.process(img)
-
+        if self.line_tracker.stop_checked:
+            self.line_stop()
         self.twist.angular.z = (-1) * self.line_tracker.delta / 50
         self._publisher.publish(self.twist)
 
@@ -58,7 +63,7 @@ class LineFollower(Node):
         min_distance = min(msg.ranges)
         self.get_logger().debug(f"Minimum distance detected: {min_distance}")
 
-        if not self.obstacle_found and min_distance < 6.0:
+        if not self.obstacle_found and min_distance < 7.0:
             self.stop()
             self.obstacle_found = True
             if self.waiting_start_time is None:
@@ -78,12 +83,25 @@ class LineFollower(Node):
         self.twist.linear.x = 0.0
         self.twist.angular.z = 0.0
         self._publisher.publish(self.twist)
+        self.stopped = True  # 차량 정지 상태로 변경
 
     def go_straight(self):
         self.twist.linear.x = 5.0
         self.twist.angular.z = (-1) * self.avoidance_sign * 0.15 if abs(self.avoidance_start_delta) > 25 else (
                                                                                                                   -1) * self.avoidance_sign * 0.3
         self._publisher.publish(self.twist)
+
+    def resume(self):
+        self.twist.linear.x = 5.0
+        self._publisher.publish(self.twist)
+        self.stopped = False
+
+    def line_stop(self):
+        self.twist.linear.x = 0.0
+        self.twist.angular.z = 0.0
+        self._publisher.publish(self.twist)
+        self.stopped = True
+        self.create_timer(3.0, self.resume)
 
     @property
     def publisher(self):
@@ -94,7 +112,6 @@ class LineFollower(Node):
         STEP_ASIDE = 1
         GO_STRAIGHT = 2
         STEP_IN = 3
-
 
 def main():
     rclpy.init()

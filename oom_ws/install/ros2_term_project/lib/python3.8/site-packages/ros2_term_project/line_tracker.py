@@ -9,6 +9,7 @@ class LineTracker:
         self.left_center = None
         self.right_center = None
         self.mid_point = None
+        self.stop_checked = False
 
     def process(self, img: np.ndarray) -> None:
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -45,7 +46,30 @@ class LineTracker:
 
         cv2.imshow("window", img)
         cv2.imshow("mask", mask)
-        cv2.waitKey(3)  
+        cv2.waitKey(1)
+        self.check_stop_line(hsv, img)
+
+    def check_stop_line(self, hsv: np.ndarray, img: np.ndarray) -> None:
+        lower_stop_line = np.array([0, 0, 160])
+        upper_stop_line = np.array([255, 80, 255])
+        stop_line_mask = cv2.inRange(hsv, lower_stop_line, upper_stop_line)
+        h, w, _ = img.shape
+
+        stop_line_top = int(2 * h / 3) - 20
+        stop_line_bottom = int(3 * h / 4) - 10
+
+        stop_line_mask[0:stop_line_top, :] = 0
+        stop_line_mask[stop_line_bottom:h, :] = 0
+        white_pixel_count = cv2.countNonZero(stop_line_mask)
+
+        if white_pixel_count > 3500:
+            self.stop_checked = True
+        else:
+            self.stop_checked = False
+
+        # 정지선 마스크 표시
+        cv2.imshow("stop mask", stop_line_mask)
+        cv2.waitKey(1)
 
     def _find_centroid(self, mask: np.ndarray, w_offset: int) -> tuple:
         M = cv2.moments(mask)
@@ -68,15 +92,13 @@ def main():
     tracker = LineTracker()
     import time
     for i in range(100):
-        img = cv2.imread('sample2.png')
+        img = cv2.imread('sample2.png')  # 이미지 경로 확인 필요
+        if img is None:
+            print("이미지 로드 실패. 경로를 확인하세요.")
+            break
         tracker.process(img)
-        if tracker.line:
-            print("Line detected")
-        else:
-            print("No line detected")
         time.sleep(0.1)
 
 
 if __name__ == "__main__":
     main()
-
