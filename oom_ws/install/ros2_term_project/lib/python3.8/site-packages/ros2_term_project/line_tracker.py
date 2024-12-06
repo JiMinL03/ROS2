@@ -55,8 +55,8 @@ class LineTracker:
         stop_line_mask = cv2.inRange(hsv, lower_stop_line, upper_stop_line)
         h, w, _ = img.shape
 
-        stop_line_top = int(2 * h / 3) - 20
-        stop_line_bottom = int(3 * h / 4) - 10
+        stop_line_top = int(2 * h / 3) - 30
+        stop_line_bottom = int(3 * h / 4) - 20
 
         stop_line_mask[0:stop_line_top, :] = 0
         stop_line_mask[stop_line_bottom:h, :] = 0

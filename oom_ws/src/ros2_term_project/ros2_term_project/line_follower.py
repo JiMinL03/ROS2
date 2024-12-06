@@ -60,24 +60,34 @@ class LineFollower(Node):
         self._publisher.publish(self.twist)
 
     def scan_callback(self, msg: LaserScan):
+        # 최소 거리 감지
         min_distance = min(msg.ranges)
         self.get_logger().debug(f"Minimum distance detected: {min_distance}")
 
+        # 장애물을 발견한 경우 처리
         if not self.obstacle_found and min_distance < 7.0:
-            self.stop()
-            self.obstacle_found = True
+            self.stop()  # 장애물 발견 시 멈춤
+            self.obstacle_found = True  # 장애물 발견 플래그를 True로 설정
             if self.waiting_start_time is None:
-                self.waiting_start_time = dt.datetime.now()
-                self.get_logger().info(f'An obstacle found in {min_distance:.2f} m')
+                self.waiting_start_time = dt.datetime.now()  # 장애물 발견 시 시간 기록
+                self.get_logger().info(f'An obstacle found at {min_distance:.2f} m')
 
+        # 장애물이 발견된 상태에서 계속 멈추기
         if self.obstacle_found:
-            if self.waiting_start_time is None: return
+            if self.waiting_start_time is None:
+                return
 
-            if min_distance > 7.0:
-                self.obstacle_found = False
-                self.waiting_start_time = None
+            # 장애물이 사라지지 않은 상태에서 계속 멈춤
+            if min_distance < 7.0:  # 장애물이 계속 존재하면 멈춤 상태 유지
+                self.stop()
+                self.get_logger().info(f'Obstacle still present, stopping...')
+
+            # 장애물이 사라졌을 때
+            elif min_distance > 7.0:
+                self.obstacle_found = False  # 장애물이 사라짐
+                self.waiting_start_time = None  # 기다린 시간 초기화
                 self.get_logger().info(f'Obstacle cleared, resuming movement')
-                self.go_straight()
+                self.go_straight()  # 다시 직진
 
     def stop(self):
         self.twist.linear.x = 0.0
